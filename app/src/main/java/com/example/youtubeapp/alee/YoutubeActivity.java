@@ -1,6 +1,9 @@
 package com.example.youtubeapp.alee;
 
 import android.os.Bundle;
+import android.widget.Button;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -11,7 +14,15 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_youtube);
+//        setContentView(R.layout.activity_youtube);
+//        ConstraintLayout constraintLayout = findViewById(R.id.activity_youtube);
+        ConstraintLayout layout = (ConstraintLayout) getLayoutInflater().inflate(R.layout.activity_youtube, null);
+        setContentView(layout);
+
+        Button button1 = new Button(this);
+        button1.setLayoutParams(new ConstraintLayout.LayoutParams(300, 80));
+        button1.setText("Button added");
+        layout.addView(button1);
     }
 
     @Override
